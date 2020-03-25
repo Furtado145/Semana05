@@ -5,20 +5,19 @@ import javax.swing.JOptionPane;
  */
 public class Exec03 {
     public static void main(String[] args) {
-        int qtd, soma = 0;
-        qtd = Integer.parseInt(
-            JOptionPane.showInputDialog(null, "Digite quantos valores sera inserido:")
-        );
-
-        int[] vetor = new int[qtd];
+        int qtd = 0;
+        int x,soma = 0;
         String resp = "A media dos valores digitados:\n";
+        String sQuest = "Se quiser finalizar para saber a media,\ndigite um valor negativo\n";
+        sQuest += "Caso contrario, digite o valor desejado:";
 
-        for (int i = 0; i < vetor.length; i++) {
-            vetor[i] = Integer.parseInt(
-                JOptionPane.showInputDialog(null, "Digite o " + (i+1) + "º valor:")
+        do {
+            x = Integer.parseInt(
+                JOptionPane.showInputDialog(null, sQuest)
             );
-            soma += vetor[i];
-        }
+            soma += x;
+            qtd++;
+        } while (x >= 0);
 
         double media = (double) soma/qtd; 
         
